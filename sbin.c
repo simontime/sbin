@@ -49,13 +49,14 @@ int main(int argc, char **argv)
 		fseek(in, l.offset, SEEK_SET);
 		fread(buf, 1, l.length, in);
 		fwrite(buf, 1, l.length, out);
+		
+		fclose(out);
 		free(buf);
 
 		fseek(in, pos, SEEK_SET);
 	}
 	
 	fclose(in);
-	fclose(out);
 
 	puts("\nDone!");
 	
